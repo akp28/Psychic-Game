@@ -19,24 +19,24 @@ document.onkeyup = function(event) {
     computerGuess.push(compGuess);
     console.log(computerGuess[0]);
     //Condition for player win or loss
-    if ((playerGuess === computerGuess[0]) && (triesLeft > 0)){
-        wins ++;
-        triesLeft--;   
-    }else if(triesLeft == 0){
-        document.querySelector("h1").innerHTML = "Game over";
-        // Clear the Div 
-        document.querySelector("div").innerHTML = " ";
-        //document.getElementById("div").reset();
-        //document.querySelector("#computerChoice").innerHTML = " ";
-        //document.querySelector("#wins").innerHTML = " ";
-        //document.querySelector("#losses").innerHTML = " ";
-        //document.querySelector("#choiceLeft").innerHTML = " ";
-        //document.querySelector("#yourGuessessofar").innerHTML = " ";
-       return;
+    if (playerGuess.toLowerCase() != playerGuess.toUpperCase()){
+        if ((playerGuess === computerGuess[0]) && (triesLeft > 0)){
+            wins ++;
+            triesLeft--;   
+        }else if(triesLeft == 0){
+            document.querySelector("h1").innerHTML = "Game over";
+            // Clear the Div 
+            document.querySelector("div").innerHTML = " ";
+        return;
+        }else{
+            losses ++;
+            triesLeft--;
+            console.log("choiceleft" + triesLeft);
+        }
     }else{
-        losses ++;
-        triesLeft--;
-        console.log("choiceleft" + triesLeft);
+        alert("Enter only Letter a-z or A-Z");
+        lettersGuessed = [];
+        return;
     }
     document.querySelector("#computerChoice").innerHTML = "The computer chose: " + computerGuess[0];
     document.querySelector("#wins").innerHTML = "wins: " + wins;
