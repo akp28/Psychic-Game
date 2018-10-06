@@ -34,7 +34,7 @@ document.onkeyup = function(event) {
             console.log("choiceleft" + triesLeft);
         }
     }else{
-        alert("Enter only Letter a-z or A-Z");
+        alert(message);
         lettersGuessed = [];
         return;
     }
